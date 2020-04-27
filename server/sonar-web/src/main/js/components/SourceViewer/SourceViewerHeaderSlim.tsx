@@ -59,6 +59,8 @@ export default function SourceViewerHeaderSlim({
     subProjectName
   } = sourceViewerFile;
 
+  const is1CPath = (path || '').endsWith('.bsl');
+
   return (
     <div className="source-viewer-header-slim display-flex-row display-flex-space-between">
       <div className="display-flex-center flex-1">
@@ -77,8 +79,8 @@ export default function SourceViewerHeaderSlim({
         )}
 
         <div className="spacer-left">
-          <QualifierIcon qualifier={q} /> <span>{collapsedDirFromPath(path)}</span>
-          <span className="component-name-file">{fileFromPath(path)}</span>
+          <QualifierIcon qualifier={q} /> <span>{is1CPath ? path : collapsedDirFromPath(path)}</span>
+          <span className="component-name-file">{is1CPath ? '' : fileFromPath(path)}</span>
         </div>
 
         <div className="spacer-left">

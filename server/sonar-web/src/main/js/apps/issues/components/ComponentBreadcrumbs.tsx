@@ -56,6 +56,7 @@ export default function ComponentBreadcrumbs({
 
   const selectedLocation = getSelectedLocation(issue, selectedFlowIndex, selectedLocationIndex);
   const componentName = selectedLocation ? selectedLocation.componentName : issue.componentLongName;
+  const is1CPath = (componentName || '').endsWith('.bsl');
 
   return (
     <div className="component-name text-ellipsis">
@@ -75,7 +76,7 @@ export default function ComponentBreadcrumbs({
         </span>
       )}
 
-      {collapsePath(componentName || '')}
+      {is1CPath ? componentName : collapsePath(componentName || '')}
     </div>
   );
 }
