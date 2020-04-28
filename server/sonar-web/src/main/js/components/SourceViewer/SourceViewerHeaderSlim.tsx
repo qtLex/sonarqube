@@ -30,6 +30,7 @@ import { collapsedDirFromPath, fileFromPath } from 'sonar-ui-common/helpers/path
 import { getPathUrlAsString } from 'sonar-ui-common/helpers/urls';
 import { getBranchLikeQuery, isMainBranch } from '../../helpers/branches';
 import { getBranchLikeUrl, getComponentIssuesUrl } from '../../helpers/urls';
+import { formatTo1CStyle } from '../../helpers/path';
 import Favorite from '../controls/Favorite';
 import './SourceViewerHeaderSlim.css';
 
@@ -79,7 +80,7 @@ export default function SourceViewerHeaderSlim({
         )}
 
         <div className="spacer-left">
-          <QualifierIcon qualifier={q} /> <span>{is1CPath ? path : collapsedDirFromPath(path)}</span>
+          <QualifierIcon qualifier={q} /> <span>{is1CPath ? formatTo1CStyle(path) : collapsedDirFromPath(path)}</span>
           <span className="component-name-file">{is1CPath ? '' : fileFromPath(path)}</span>
         </div>
 

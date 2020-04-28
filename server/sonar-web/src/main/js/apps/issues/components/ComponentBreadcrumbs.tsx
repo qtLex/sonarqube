@@ -21,6 +21,7 @@ import * as React from 'react';
 import { collapsePath, limitComponentName } from 'sonar-ui-common/helpers/path';
 import Organization from '../../../components/shared/Organization';
 import { getSelectedLocation } from '../utils';
+import { formatTo1CStyle } from '../../../helpers/path';
 
 interface Props {
   component?: T.Component;
@@ -76,7 +77,7 @@ export default function ComponentBreadcrumbs({
         </span>
       )}
 
-      {is1CPath ? componentName : collapsePath(componentName || '')}
+      {is1CPath ? formatTo1CStyle(componentName || '') : collapsePath(componentName || '')}
     </div>
   );
 }
